@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return BasePage();
+    return BasePage(
+      content: Container(color: Colors.blueAccent, child: Text('HOME CONTENT'),),
+    );
   }
 }

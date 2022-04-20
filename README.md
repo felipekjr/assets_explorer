@@ -7,7 +7,9 @@ A flutter desktop app to map elements (.png, .svg and simple widgets) inside a f
 3. If the element is a ```Flutter Widget```, the code will show up
 
 **PS:** Only renderizes ```Flutter Widgets``` with simple required parameters.
-
+## How to run
+ 1. set your flutter min version to ```2.10```
+ 2. run ```flutter run -d macos``` or ```flutter run -d windows``` on root
 ## Features
  - [ ] .PNG Visualizer
  - [ ] .SVG Visualizer

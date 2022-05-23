@@ -12,7 +12,13 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   file_picker: ^4.5.1
-  
+  desktop_window: ^0.4.0
+  google_fonts: ^2.3.1
+  responsive_framework: '0.1.9'
+  equatable: ^2.0.3
+  flutter_hooks: ^0.18.3
+  flutter_riverpod: ^1.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -20,5 +26,15 @@ dev_dependencies:
   flutter_lints: ^1.0.0
 
 flutter:
-
   uses-material-design: true
+  assets:
+    - assets/
+  fonts:
+    # - family: Gotham
+    #   fonts:
+    #     - asset: assets/fonts/GothamBold.ttf
+    #     - asset: assets/fonts/GothamMedium.ttf
+    #     - asset: assets/fonts/GothamLight.ttf  
+    - family: Allrox
+      fonts:
+        - asset: assets/fonts/Allrox.ttf  

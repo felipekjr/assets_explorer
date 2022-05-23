@@ -1,4 +1,4 @@
-# flutter_elements_mapper
+# Assets Explorer
 A flutter desktop app to map elements (.png, .svg and simple widgets) inside a folder
 
 ## How to use

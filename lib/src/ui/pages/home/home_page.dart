@@ -1,10 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_elements_mapper/src/domain/entities/asset_entity.dart';
-import 'package:flutter_elements_mapper/src/ui/theme/button_background_color.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import '../../../domain/entities/entities.dart';
 import '../base_page.dart';
 
 import '../../theme/theme.dart';
@@ -39,7 +36,7 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           topRow(),
-          const SizedBox(height: Spacing.x5),
+          const SizedBox(height: Spacing.x10),
           cards()
         ],
       ),
@@ -75,12 +72,36 @@ class _HomePageState extends State<HomePage> {
       return CustomCard(
         child: Column(
           children: [
-            Container(height: 150, width: 200, color: Colors.grey),
+            Stack(
+              children: [
+                Image.asset(
+                  'assets/images/transparent-bg.png',
+                  width: 200,
+                  height: 150,
+                  fit: BoxFit.fill,
+                )
+              ]
+            ),
             const SizedBox(height: Spacing.x2),
             Expanded(
-              child: Text(
-                'CAMINHO DO ASSET', 
-                style: TextStyles.normal()
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'CAMINHO DO ASSET', 
+                    style: TextStyles.normal()
+                  ),
+                  IconButton(
+                    onPressed: () {}, 
+                    padding: const EdgeInsets.all(0),
+                    icon: Icon(
+                      Icons.copy, 
+                      size: 16,
+                      color: AppColor.primary
+                    )
+                  )
+                ],
               )
             ),
             const SizedBox(height: Spacing.x2),
@@ -89,78 +110,4 @@ class _HomePageState extends State<HomePage> {
       );
     }).toList()
   );
-}
-
-
-// ignore: must_be_immutable
-class HoveredAnimatedButton extends HookWidget {
-  bool mouseOn = false;
-
-  HoveredAnimatedButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    AnimationController animationController = useAnimationController(
-      duration: const Duration(milliseconds: 200),
-    );
-    Animation animation = Tween<double>(
-      begin: 8.0, end: 90.0
-    ).animate(animationController);
-
-    var mouseOn = useState<bool>(false);
-
-    return MouseRegion(
-      onHover: (_) {
-        animationController.forward();
-        mouseOn.value = true;
-      },
-      onExit: (_) {
-        animationController.reverse();
-        mouseOn.value = false;
-      },
-      child: CustomCard(
-        child: TextButton(
-          style: ButtonStyle(
-            backgroundColor: ButtonBackgroundColor(context),
-            overlayColor: ButtonBackgroundColor(context),
-            padding: MaterialStateProperty.all<EdgeInsets>(
-              const EdgeInsets.all(Spacing.x2)
-            ),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-                side: BorderSide.none
-              )
-            )
-          ),
-          child: Row(
-            children: [
-              const Icon(
-                Icons.add,
-                color: Colors.white
-              ),
-              AnimatedBuilder(
-                animation: animation,
-                builder: (BuildContext context, Widget? child) {  
-                  return Container(
-                    height: 20,
-                    width: animation.value,
-                    child: Opacity(
-                      opacity: mouseOn.value ? 1 : 0,
-                      child: Text(
-                        'Escolher', 
-                        style: TextStyles.medium(color: Colors.white)
-                      ),
-                    ) ,
-                  );
-                },
-               
-              )
-            ],
-          ),
-          onPressed: () {},
-        ),
-      ),
-    );
-  }
 }

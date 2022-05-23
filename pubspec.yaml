@@ -1,5 +1,5 @@
-name: flutter_elements_mapper
-description: A new Flutter project.
+name: flutter_assets_explorer
+description: Desktop app to explore assets on a given folder
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
@@ -28,7 +28,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
+    - assets/fonts/
+    - assets/images/
   fonts:
     # - family: Gotham
     #   fonts:

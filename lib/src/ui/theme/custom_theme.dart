@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_elements_mapper/src/ui/theme/app_color.dart';
+
+import 'app_color.dart';
 
 class CustomTheme {
   static ThemeData get theme => ThemeData(

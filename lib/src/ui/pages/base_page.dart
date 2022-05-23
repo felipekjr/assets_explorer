@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_elements_mapper/src/ui/theme/app_color.dart';
-import 'package:flutter_elements_mapper/src/ui/widgets/widgets.dart';
 
 import '../theme/theme.dart';
+import '../widgets/widgets.dart';
 
 class BasePage extends StatefulWidget {
   final Widget content;

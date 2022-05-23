@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_elements_mapper/src/ui/widgets/widgets.dart';
 
 import '../theme/theme.dart';
+import 'menu_item.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({ Key? key }) : super(key: key);
@@ -20,7 +20,7 @@ class SideBar extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Elements mapper', 
+              'Assets Explorer', 
               style: TextStyles.header(color: Colors.white)
             ),
             const SizedBox(height: Spacing.x10),

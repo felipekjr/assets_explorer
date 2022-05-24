@@ -7,8 +7,9 @@ import 'widgets.dart';
 // ignore: must_be_immutable
 class HoveredAnimatedButton extends HookWidget {
   bool mouseOn = false;
+  final VoidCallback onClick;
 
-  HoveredAnimatedButton({Key? key}) : super(key: key);
+  HoveredAnimatedButton({Key? key, required this.onClick}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class HoveredAnimatedButton extends HookWidget {
           child: Row(
             children: [
               const Icon(
-                Icons.add,
+                Icons.file_upload_outlined,
                 color: Colors.white
               ),
               AnimatedBuilder(
@@ -68,7 +69,7 @@ class HoveredAnimatedButton extends HookWidget {
                       opacity: mouseOn.value ? 1 : 0,
                       duration: const Duration(milliseconds: 300),
                       child: Text(
-                        'Escolher', 
+                        'Import Folder', 
                         style: TextStyles.medium(color: Colors.white)
                       ),
                     ) ,
@@ -78,7 +79,7 @@ class HoveredAnimatedButton extends HookWidget {
               )
             ],
           ),
-          onPressed: () {},
+          onPressed: onClick,
         ),
       ),
     );

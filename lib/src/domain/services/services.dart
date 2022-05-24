@@ -1,1 +1,1 @@
-export './file_service.dart';
+export 'assets_service.dart';

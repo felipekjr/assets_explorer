@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'src/ui/pages/pages.dart';
@@ -21,23 +22,25 @@ class FlutterAssetsExplorer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: CustomTheme.theme,
-        builder: (context, child) => ResponsiveWrapper.builder(
-          child,
-          maxWidth: 1200,
-          minWidth: 1200,
-          defaultScale: true,
-          breakpoints: const [
-            ResponsiveBreakpoint.resize(480, name: MOBILE),
-            ResponsiveBreakpoint.autoScale(800, name: TABLET),
-            ResponsiveBreakpoint.resize(1000, name: DESKTOP),
-          ],
-          background: Container(color: const Color(0xFFF5F5F5))
-        ),
-      routes: {
-        '/': (context) => const HomePage()
-      },
+    return ProviderScope(
+      child: MaterialApp(
+        theme: CustomTheme.theme,
+          builder: (context, child) => ResponsiveWrapper.builder(
+            child,
+            maxWidth: 1200,
+            minWidth: 1200,
+            defaultScale: true,
+            breakpoints: const [
+              ResponsiveBreakpoint.resize(480, name: MOBILE),
+              ResponsiveBreakpoint.autoScale(800, name: TABLET),
+              ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+            ],
+            background: Container(color: const Color(0xFFF5F5F5))
+          ),
+        routes: {
+          '/': (context) => const HomePage()
+        },
+      ),
     );
   }
 

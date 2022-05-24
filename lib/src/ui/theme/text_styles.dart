@@ -19,4 +19,9 @@ class TextStyles {
     fontSize: 14,
     color: color ?? AppColor.primary,
   );
+
+  static TextStyle small({Color? color}) => GoogleFonts.roboto(
+    fontSize: 12,
+    color: color ?? AppColor.primary,
+  );
 }

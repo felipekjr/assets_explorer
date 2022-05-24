@@ -10,11 +10,10 @@ class SearchInput extends StatelessWidget {
     return TextField(
       cursorColor: AppColor.primary,
       decoration: InputDecoration(
-        labelText: 'Search',
         hintText: 'Search',
         fillColor: AppColor.greySecondary,
         hoverColor: AppColor.greySecondary,
-        hintStyle: TextStyle(color: AppColor.grey),
+        hintStyle: TextStyle(color: AppColor.primary),
         prefixIcon: Icon(Icons.search_rounded, color: AppColor.primary),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: OutlineInputBorder(

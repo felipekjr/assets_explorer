@@ -6,10 +6,12 @@ class MenuItem extends StatefulWidget {
   final Icon? icon;
   final String label;
   final VoidCallback onClick;
+  final bool disabled;
 
   const MenuItem({
     Key? key,
     this.icon,
+    this.disabled = false,
     required this.label,
     required this.onClick
   }) : super(key: key);
@@ -24,10 +26,12 @@ class _MenuItemState extends State<MenuItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onClick,
+      onTap: !widget.disabled ? widget.onClick : null,
       child: MouseRegion(
         onHover: (_) {
-          setState(() => backgroundColor = AppColor.primary);
+          if (!widget.disabled) {
+            setState(() => backgroundColor = AppColor.primary);
+          }
         },
         onExit: (_) {
           setState(() => backgroundColor = AppColor.secondary);
@@ -42,12 +46,15 @@ class _MenuItemState extends State<MenuItem> {
               horizontal: Spacing.x1,
               vertical: Spacing.x2
             ),
-            child: Row(children: [
-              const SizedBox(width: Spacing.x1),
-              widget.icon ?? const SizedBox.shrink(),
-              const SizedBox(width: Spacing.x2),
-              Text(widget.label, style: TextStyles.medium(color: Colors.white))
-            ]),
+            child: Opacity(
+              opacity: widget.disabled ? .5 : 1,
+              child: Row(children: [
+                const SizedBox(width: Spacing.x1),
+                widget.icon ?? const SizedBox.shrink(),
+                const SizedBox(width: Spacing.x2),
+                Text(widget.label, style: TextStyles.medium(color: Colors.white))
+              ]),
+            ),
           ),
         ),
       ),

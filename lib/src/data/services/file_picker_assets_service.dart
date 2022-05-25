@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_assets_explorer/src/domain/entities/asset_entity.dart';
+import 'package:flutter_assets_explorer/src/domain/helpers/domain_error.dart';
 
 import '../../core/utils/utils.dart';
 import '../../domain/services/services.dart';
@@ -27,13 +28,13 @@ class FilePickerAssetsService implements AssetsService {
 
         return files.map((File f) => _toAssetEntity(f)).toList();
       }
-      return [];
+      throw DomainError.cancelledOperation;
     });
   }
 
   AssetEntity _toAssetEntity(File f) {
     return AssetEntity(
-      name: StringUtils.getLastSlices(f.path, '/', 1),
+      name: StringUtils.getLastSlices(f.path, '/', 2),
       path: StringUtils.getLastSlices(f.path, '/', 6), 
       file: f,
       type: StringUtils.getExtension(f.path) == 'svg' 

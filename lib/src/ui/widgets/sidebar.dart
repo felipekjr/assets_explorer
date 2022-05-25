@@ -41,6 +41,7 @@ class SideBar extends StatelessWidget {
       const SizedBox(height: Spacing.x1),
       MenuItem(
         label: 'Settings',
+        disabled: true,
         icon: const Icon(Icons.settings, color: Colors.white),
         onClick: () {},
       ),    

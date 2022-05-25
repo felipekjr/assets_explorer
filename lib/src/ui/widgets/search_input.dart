@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import '../theme/theme.dart';
 
 class SearchInput extends StatelessWidget {
-  const SearchInput({ Key? key }) : super(key: key);
+  final Function(String v) onChanged;
+  const SearchInput({ Key? key, required this.onChanged }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: AppColor.primary,
+      onChanged: onChanged,
       decoration: InputDecoration(
         hintText: 'Search',
         fillColor: AppColor.greySecondary,

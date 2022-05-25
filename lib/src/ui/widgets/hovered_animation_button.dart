@@ -55,9 +55,12 @@ class HoveredAnimatedButton extends HookWidget {
           ),
           child: Row(
             children: [
-              const Icon(
-                Icons.file_upload_outlined,
-                color: Colors.white
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: Spacing.x1),
+                child: Icon(
+                  Icons.file_upload_outlined,
+                  color: Colors.white
+                ),
               ),
               AnimatedBuilder(
                 animation: animation,

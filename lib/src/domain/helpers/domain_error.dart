@@ -1,0 +1,4 @@
+enum DomainError {
+  cancelledOperation,
+  unexpected
+}
